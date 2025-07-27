@@ -1,0 +1,82 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+Survey
+{% endblock %}
+
+{{ block content }}
+<hr>
+
+<style>
+    .otree-title {
+      text-align: center;
+    }
+    #form {
+        text-align: justify;
+    }
+    .otree-form-errors {
+        visibility: hidden;
+        display: none;
+    }
+    p{
+        font-size: 22px;
+    }
+    .otree-timer {
+        display: none;
+    }
+    .otree-body {
+        max-width:1100px
+    }
+    div.a {
+      text-indent: 50px;
+    }
+</style>
+
+<br>
+
+<p>
+    Please state how much you agree with each of the statements below. You will be paid 25 ECU for completing this page.
+</p>
+<br>
+<div>
+    <p style="margin-bottom: -18px;">
+        1. I would prefer saving for an overseas trip rather than frequent dinning out.
+    </p>
+    {{ formfield 'anticipation_6' }}
+</div>
+<br>
+<div>
+    <p style="margin-bottom: -18px;">
+        2. When a thing I have been eagerly waiting for is not available when the time comes, then I will find a
+        substitute because I can not stand to wait any longer.
+    </p>
+    {{ formfield 'anticipation_7' }}
+</div>
+<br>
+<div>
+    <p style="margin-bottom: -18px;">
+        3. I prefer saving for my retirement rather than having frequent overseas trips.
+    </p>
+    {{ formfield 'anticipation_8' }}
+</div>
+<br>
+<div>
+    <p style="margin-bottom: -18px;">
+        4. When the waiter brought my food, I start with the most delicious item on the plate rather than saving it for last.
+    </p>
+    {{ formfield 'anticipation_9' }}
+</div>
+<br>
+<div>
+    <p style="margin-bottom: -18px;">
+        5. Sometimes, I like to leave my online order un-opened for a while, just to savour the moment when I finally get to open it.
+    </p>
+    {{ formfield 'anticipation_10' }}
+</div>
+<br><br>
+
+<button class="btn btn-primary" style="float: right;">Next</button>
+<br><br>
+
+{{ endblock }}

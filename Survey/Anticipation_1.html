@@ -1,0 +1,91 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+Survey
+{% endblock %}
+
+{{ block content }}
+<hr>
+
+<style>
+    .otree-title {
+      text-align: center;
+    }
+    #form {
+        text-align: justify;
+    }
+    .otree-form-errors {
+        visibility: hidden;
+        display: none;
+    }
+    p{
+        font-size: 22px;
+    }
+    .otree-timer {
+        display: none;
+    }
+    .otree-body {
+        max-width:1100px
+    }
+    div.a {
+      text-indent: 50px;
+    }
+</style>
+
+<br>
+
+<!--<p>-->
+<!--    Most people compare themselves from time to time with others. For example, they may-->
+<!--compare the way they feel, their opinions, their abilities, and/or their situation with those of-->
+<!--other people. There is nothing particularly 'good' or 'bad' about this type of comparison, and-->
+<!--some people do it more than others.-->
+<!--</p>-->
+<!--<p>-->
+<!--    We would like to find out how often you compare-->
+<!--yourself with other people. To do that we would like to ask you to indicate how much you-->
+<!--agree with each statement below.-->
+<!--</p>-->
+<p>
+    Please state how much you agree with each of the statements below. You will be paid 25 ECU for completing this page.
+</p>
+<br>
+<div>
+    <p style="margin-bottom: -18px;">
+        1. On a typical Friday night, I prefer a home-cooked meal over eating out.
+    </p>
+    {{ formfield 'anticipation_1' }}
+</div>
+<br>
+<div>
+    <p style="margin-bottom: -18px;">
+        2. Sometime, I like to save the best food for last.
+    </p>
+    {{ formfield 'anticipation_2' }}
+</div>
+<br>
+<div>
+    <p style="margin-bottom: -18px;">
+        3. I prefer shopping online rather than visiting the stores.
+    </p>
+    {{ formfield 'anticipation_3' }}
+</div>
+<br>
+<div>
+    <p style="margin-bottom: -18px;">
+        4. Waiting for my online order to arrive is unbearable, and I will open the package as soon as it arrives.
+    </p>
+    {{ formfield 'anticipation_4' }}
+</div><br>
+<div>
+    <p style="margin-bottom: -18px;">
+        5. I just learned that a very desirable product I have been waiting for got delayed, but I do not mind waiting a bit longer because waiting in anticipation is part of the fun.
+    </p>
+    {{ formfield 'anticipation_5' }}
+</div>
+<br><br>
+
+<button class="btn btn-primary" style="float: right;">Next</button>
+<br><br>
+
+{{ endblock }}

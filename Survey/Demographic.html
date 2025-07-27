@@ -1,0 +1,31 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+Survey
+{% endblock %}
+
+{% block content %}
+<style>
+    p{
+        font-size: 22px;
+        margin-bottom: -18px;
+    }
+    .otree-title {
+      text-align: center;
+    }
+    .otree-body {
+        max-width:1100px
+    }
+</style>
+{% block styles %}
+    <link href="{% static 'css/otreetimer.css' %}" rel="stylesheet">
+{% endblock %}
+<hr>
+<br>
+{% formfields %}
+<br><br>
+<button class="otree-btn-next btn btn-primary" style="float: right;">Next</button>
+<br><br>
+
+{{ endblock }}

@@ -1,0 +1,27 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block styles %}
+    <link href="{% static 'css/PracticePages.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+<style>
+    h4.thick {
+    font-weight: 600;
+}
+</style>
+
+<br><br>
+<center>
+    <p>
+        <b>Thank you for completing the consent form.</b>
+    </p>
+    <br><br>
+    <p>
+        <b>The experiment will proceed once everyone is ready.</b>
+    </p>
+</center>
+
+{% endblock %}

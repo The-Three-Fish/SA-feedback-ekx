@@ -1,0 +1,128 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block scripts %}
+
+<script src="{% static 'js/Instruction1.js' %}"></script>
+
+{% endblock %}
+
+{% block styles %}
+    <link href="{% static 'css/otreetimer.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<style>
+    .next {
+        float: right;
+    }
+    .back{
+        float: left;
+        margin: 40px auto;
+        }
+    p {
+        font-size: 22px;
+    }
+    .otree-body {
+        max-width:1100px
+    }
+    .otree-title {
+        display: none
+    }
+</style>
+
+<div class="tab">
+    <br>
+    <br>
+    <h2 style="text-align: center">Part 1 - The mining game <br/> (Instruction 1/3)</h2>
+    <hr>
+    <br>
+    <p>
+        In this experiment, you will be asked to play a game of "mining for gold”. The rules of the game are as follows:
+    </p>
+    <br>
+    <p>
+        A miner, as shown in the picture below, will be working on mining a gold nugget for you.
+        The mining will take a while, and in the end, the miner might find nothing, or a valuable gold nugget.
+    </p>
+    <br>
+    <p style="text-align: center">
+        <img src="{% static "Miner/gold_miner.png" %}" style="width:50%" />
+    </p>
+    <br>
+    <p>
+        <button type="button" class="btn btn-primary btn-tab" data-offset="1" style="float: right">Next</button>
+    </p>
+</div>
+
+<div class="tab">
+    <br>
+    <br>
+    <h2 style="text-align: center">Part 1 - The mining game <br/> (Instruction 2/3)</h2>
+    <hr>
+    <br>
+    <p>
+        The gold nugget can worth anywhere between 600 and 750 ECU.
+    </p>
+    <br><br>
+    <p>
+        If a gold nugget is found, you will be paid on the value of the nuget at the end of the experiment.
+    </p>
+    <br><br>
+    <p>
+        <button type="button" class="btn btn-primary btn-tab" data-offset="-1" style="float: left;">Previous</button>
+        <button type="button" class="btn btn-primary btn-tab" data-offset="1" style="float: right;">Next</button>
+    </p>
+    <br><br><br><br>
+</div>
+
+<div class="tab">
+    <br>
+    <br>
+    <h2 style="text-align: center">Part 1 - The mining game <br/> (Instruction 3/3)</h2>
+    <hr>
+    <br>
+    <p>
+        For the mining process, a miner <b>randomly picks a spot</b> to start digging,
+        and whether the miner will find the gold depends entirely on the location of the mining.
+    </p>
+    <br>
+    <p>
+        In other words, once the miner picked a spot, the outcome of the mining is determined,
+        and there is nothing you can do to change the outcome.
+    </p>
+    <br>
+    <p>
+        The mining process should take about 10 minutes but it might take longer.
+    </p>
+    <br><br><br><br>
+    <div>
+        <button type="button" class="btn btn-primary btn-tab" data-offset="-1" style="float: left;">Previous</button>
+        <button class="btn btn-primary" style="float: right;">Next</button>
+    </div>
+</div>
+
+
+<script>
+    let activeTab = 0;
+
+    function showCurrentTabOnly() {
+        let tabIndex = 0;
+        for (let tab of document.getElementsByClassName('tab')) {
+            tab.style.display = tabIndex === activeTab ? 'block' : 'none';
+            tabIndex++;
+        }
+    }
+
+    showCurrentTabOnly();
+    for (let btn of document.getElementsByClassName('btn-tab')) {
+        btn.onclick = function () {
+            activeTab += parseInt(btn.dataset.offset);
+            showCurrentTabOnly();
+        }
+    }
+</script>
+
+{% endblock %}
+
+

@@ -1,0 +1,160 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block scripts %}
+
+<script src="{% static 'js/Instruction1.js' %}"></script>
+
+{% endblock %}
+
+{% block styles %}
+    <link href="{% static 'css/otreetimer.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<style>
+    .next {
+        float: right;
+    }
+    .back{
+        float: left;
+        margin: 40px auto;
+        }
+    p {
+        font-size: 22px;
+    }
+    .otree-body {
+        max-width:1100px
+    }
+    .otree-title {
+        display: none
+    }
+</style>
+
+<div class="tab">
+    <br>
+    <br>
+    <h2 style="text-align: center">Part 1 - Your valuation for an item <br/> (Instruction 1/4)</h2>
+    <hr>
+    <br>
+    <p>
+        At different points throughout the experiment, we will ask you the value you have for an item or the amount you are willing to pay to be informed about certain events.
+    </p>
+    <br>
+    <p>
+        We have designed the experiment so that is always in your best interest to report your value or willingness to pay truthfully.
+    </p>
+    <br>
+    <p>
+        Please see an example on the next page to see how the elicitation will work.
+    </p>
+    <br>
+    <p>
+        <button type="button" class="btn btn-primary btn-tab" data-offset="1" style="float: right">Next</button>
+    </p>
+</div>
+
+<div class="tab">
+    <br>
+    <br>
+    <h2 style="text-align: center">Part 1 - Your valuation for an item <br/> (Instruction 2/4)</h2>
+    <hr>
+    <br>
+    <p>
+        Suppose that a miner has an item that is worth 7 ECU to you.
+    </p>
+    <br>
+    <p>
+        The miner will randomly pick a price between 0 and 10 ECU, and write it down on a piece of paper.
+    </p>
+    <br>
+    <p>
+        Now you will select a price yourself, and if your price is <b>higher than or equal</b> to the miner's price,
+        then you will get the item and <b>pay the price the miner wrote down</b>.
+    </p>
+    <br>
+    <p>
+        However, if the price you selected is <b>lower</b> than the miner's price, you <b>will not get</b> the item.
+    </p>
+    <br><br>
+    <p>
+        <button type="button" class="btn btn-primary btn-tab" data-offset="-1" style="float: left;">Previous</button>
+        <button type="button" class="btn btn-primary btn-tab" data-offset="1" style="float: right;">Next</button>
+    </p>
+    <br><br><br><br>
+</div>
+
+<div class="tab">
+    <br>
+    <br>
+    <h2 style="text-align: center">Part 1 - Your valuation for an item <br/> (Instruction 3/4)</h2>
+    <hr>
+    <br>
+    <p>
+        Now the miner wrote down his price. It is time for you to decide on your price for the item, which number would you pick?
+        Remember that you think the item is worth 7 ECU to you.
+    </p>
+    <br>
+    <p>
+        {{ formfields }}
+    </p>
+    <br><br><br><br>
+    <p>
+        <button type="button" class="btn btn-primary btn-tab" data-offset="-1" style="float: left;">Previous</button>
+        <button type="button" class="btn btn-primary btn-tab" data-offset="1" style="float: right;">Next</button>
+    </p>
+</div>
+
+<div class="tab">
+    <br>
+    <br>
+    <h2 style="text-align: center">Part 1 - Your valuation for an item <br/> (Instruction 4/4)</h2>
+    <hr>
+    <br>
+    <p>
+        Recall that the item is worth 7 ECU to you.
+    </p>
+    <p>
+        If you pick a smaller number, let's say 4 ECU, and the miner wrote down a price of 5 ECU.
+        Then you will not get the item, even though you would be better off by getting it (7 > 5).
+    </p>
+    <br>
+    <p>
+        If you pick a larger number, that's say 9 ECU, and the miner wrote down a price of 8 ECU.
+        Then you will get the item, but you are worse off because the price you pay is higher than the item's worth (8 > 7).
+    </p>
+    <br>
+    <p>
+        Therefore, the best strategy is to give the miner the <b>maximum price you are willing to pay</b>,
+        which is also your valuation for the item, 7 ECU.
+    </p>
+    <br><br><br>
+    <div>
+        <button type="button" class="btn btn-primary btn-tab" data-offset="-1" style="float: left;">Previous</button>
+        <button class="btn btn-primary" style="float: right;">Next</button>
+    </div>
+</div>
+
+<script>
+    let activeTab = 0;
+
+    function showCurrentTabOnly() {
+        let tabIndex = 0;
+        for (let tab of document.getElementsByClassName('tab')) {
+            tab.style.display = tabIndex === activeTab ? 'block' : 'none';
+            tabIndex++;
+        }
+    }
+
+    showCurrentTabOnly();
+    for (let btn of document.getElementsByClassName('btn-tab')) {
+        btn.onclick = function () {
+            activeTab += parseInt(btn.dataset.offset);
+            showCurrentTabOnly();
+        }
+    }
+</script>
+
+{% endblock %}
+
+

@@ -1,0 +1,37 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+Part 1
+{% endblock %}
+
+{% block styles %}
+    <link href="{% static 'css/PracticePages.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<hr>
+<br>
+<p>
+    There are indeed <b>specks of gold</b> in the pan!
+</p>
+<br><br>
+<p style="text-align: center">
+    <img src="{% static "Miner/gold_spec.png" %}" style="width:70%" />
+</p>
+<br>
+<p>
+    This means the miner is very likely to find a gold nugget in the end.
+</p>
+<br>
+<P>
+    You may now complete some tasks while you wait for the mining to finish.
+</P>
+<br>
+<br>
+
+<center>
+    <button class="otree-btn-next btn btn-primary">Start Task</button>
+</center>
+
+{% endblock %}

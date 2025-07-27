@@ -1,0 +1,33 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+Part 3
+{% endblock %}
+
+{% block styles %}
+    <link href="{% static 'css/PracticePages.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<hr>
+<br>
+<p>
+{{ if player.participant.treatment == 1 }}
+<p>
+    You may now start the tasks.
+</p>
+<br>
+
+    {{ else }}
+<p>
+    The mining continues, you may now proceed with the task while waiting.
+</p>
+<br>
+{{ endif }}
+
+<br>
+<br>
+<button class="otree-btn-next btn btn-primary" style="float: right;">Next</button>
+
+{% endblock %}

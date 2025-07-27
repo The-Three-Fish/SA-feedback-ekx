@@ -1,0 +1,78 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+The End of Experiment
+{% endblock %}
+
+{% block content %}
+<hr>
+
+<style>
+    p{
+        font-size: 22px;
+    }
+    .otree-form-errors {
+        visibility: hidden;
+        display: none;
+    }
+    .otree-body {
+        max-width:1100px
+    }
+    .otree-title {
+      text-align: center;
+    }
+    input[type=radio]:checked + label {
+          font-style: normal;
+          color: rgb(56,110,246);
+          border: 1px solid rgb(56,110,246);
+          background-color: rgb(226,233,253)
+        }
+    .table {
+      width: 60%;
+      border-top: double;
+      border-bottom: double;
+    }
+</style>
+{% block styles %}
+    <link href="{% static 'css/otreetimer.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+<br>
+<br>
+<p>
+    Your final payment, including a participation fee of &dollar;{{Constants.participationfee}}, is
+    &dollar;<b id="payoff"></b>.
+</p>
+<p>
+    <b>
+        Thank you for your participation!
+    </b>
+</p>
+<br>
+<p>
+    <b>
+        Please raise your hand when you are ready to leave.
+    </b>
+</p>
+<br>
+<p>
+    <b>
+        An experimenter will come to you with further instructions.
+    </b>
+</p>
+
+<script>
+window.onload = function(){
+    let number = js_vars.finalpayoff;
+    var roundedpayoff = number.toFixed(2);
+    document.getElementById('payoff').innerHTML = roundedpayoff;
+};
+</script>
+
+<br><br>
+<button class="otree-btn-next btn btn-primary" style="float: right;">Next</button>
+
+{{ endblock }}
+

@@ -1,0 +1,107 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block scripts %}
+
+<script src="{% static 'js/Instruction1.js' %}"></script>
+
+{% endblock %}
+
+{% block styles %}
+    <link href="{% static 'css/otreetimer.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<style>
+    .next {
+        float: right;
+    }
+    .back{
+        float: left;
+        margin: 40px auto;
+        }
+    p {
+        font-size: 22px;
+    }
+    .otree-body {
+        max-width:1100px
+    }
+    .otree-title {
+        display: none
+    }
+</style>
+
+<div class="tab">
+    <br>
+    <br>
+    <h2 style="text-align: center">Part 1 - The task <br/> (Instruction 1/2)</h2>
+    <hr>
+    <br>
+    <p>
+        While you are waiting for the miner to finish his work, you can complete some simple tasks to pass the time (see example below).
+    </p>
+    <br>
+    <p>
+        Please count the number of 0 in the table of numbers below.
+    </p>
+    <p style="text-align: center">
+        <img src="{% static "Part1/example.png" %}" style="width:50%" />
+    </p>
+    <br>
+    <p>
+        The correct answer is 5.
+    </p>
+    <p>
+        <button type="button" class="btn btn-primary btn-tab" data-offset="1" style="float: right">Next</button>
+    </p>
+</div>
+
+<div class="tab">
+    <br>
+    <br>
+    <h2 style="text-align: center">Part 1 - The task <br/> (Instruction 2/2)</h2>
+    <hr>
+    <br>
+    <p>
+        There will be 30 such questions. You will be given 20 seconds each, and your answer will be automatically submitted after the timer expires.
+    </p>
+    <br>
+    <p>
+        You will be paid 100 ECU as long as you solve half of them correctly, an easy target that we expect every participant should be able to reach.
+    </p>
+    <br>
+    <p>
+        The outcome of the mining will be revealed after you have completed the task.
+    </p>
+    <br><br><br><br>
+    <p>
+        <button type="button" class="btn btn-primary btn-tab" data-offset="-1" style="float: left;">Previous</button>
+        <button class="btn btn-primary" style="float: right;">Next</button>
+    </p>
+    <br><br><br><br>
+</div>
+
+
+<script>
+    let activeTab = 0;
+
+    function showCurrentTabOnly() {
+        let tabIndex = 0;
+        for (let tab of document.getElementsByClassName('tab')) {
+            tab.style.display = tabIndex === activeTab ? 'block' : 'none';
+            tabIndex++;
+        }
+    }
+
+    showCurrentTabOnly();
+    for (let btn of document.getElementsByClassName('btn-tab')) {
+        btn.onclick = function () {
+            activeTab += parseInt(btn.dataset.offset);
+            showCurrentTabOnly();
+        }
+    }
+</script>
+
+{% endblock %}
+
+

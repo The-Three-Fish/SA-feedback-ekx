@@ -1,0 +1,50 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+Part 2
+{% endblock %}
+
+{% block content %}
+<hr>
+
+<style>
+    p{
+        font-size: 22px;
+    }
+    .otree-body {
+        max-width:1100px
+    }
+    .otree-title {
+        text-align: center
+    }
+</style>
+{% block styles %}
+    <link href="{% static 'css/otreetimer.css' %}" rel="stylesheet">
+{% endblock %}
+<br>
+<p>
+    The mining process took longer than planned.
+</p>
+<br>
+<p>
+    The outcome of the mining will be revealed in another 7 minutes
+</p>
+<br>
+<p>
+    You can still complete some tasks while waiting.
+</p>
+<br>
+<p>
+    There will be 20 questions, you will be paid 100 ECU for correctly answering at least half of the questions.
+</p>
+<br>
+<p>
+    You may now start the task.
+</p>
+<br>
+<br>
+
+<button class="otree-btn-next btn btn-primary" style="float: right;">Next</button>
+
+{{ endblock }}

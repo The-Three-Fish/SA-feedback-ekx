@@ -1,0 +1,50 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+Part 3
+{% endblock %}
+
+{% block styles %}
+
+<link href="{% static 'css/PracticePages.css' %}" rel="stylesheet">
+
+{% endblock %}
+
+{% block content %}
+<hr>
+<br>
+<p>
+    Congratulations, the miner has <b>found a gold nugget</b>!
+</p>
+<br>
+<p>
+    However, the value of this nugget remains uncertain, and can be anywhere between 600 and 750 ECU.
+</p>
+<br>
+<p>
+    Before the value of the gold is determined, you are now offered a chance to <b>sell it to a buyer for cash</b>.
+</p>
+<br>
+<p>
+    The buyer has written down his offer (a number between 600 and 750 ECU) on a piece of paper.
+</p>
+<br>
+<p>
+    Now, how much are you willing to accept to sell the gold nugget?
+</p>
+<br>
+{{ formfield "wta_t2" }}
+<br>
+<p>
+    Note that the gold will only be sold if the buyer's offer <b>is higher than your price</b>, in which case he will get the gold and pay you
+    the price you selected above, otherwise you get to keep the gold.
+</p>
+
+<br>
+<br>
+<button class="otree-btn-next btn btn-primary" style="float: right;">Next</button>
+
+{% endblock %}
+
+

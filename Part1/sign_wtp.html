@@ -1,0 +1,223 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+Part 1
+{% endblock %}
+
+{% block content %}
+<hr>
+
+<style>
+    p{
+        font-size: 22px;
+    }
+    .otree-body {
+        max-width:1100px
+    }
+    .otree-form-errors {
+        visibility: hidden;
+        display: none;
+    }
+    .center {
+        margin: 0px 40% 0px 40%;
+    }
+    .otree-title {
+        text-align: center
+    }
+</style>
+<style>
+  .slidecontainer {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 100%;
+    }
+    .slider {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 100%;
+      border-radius: 5px;
+      background: #d3d3d3;
+      outline: none;
+      opacity: 0.7;
+      -webkit-transition: .2s;
+      transition: opacity .2s;
+    }
+    .slider:hover {
+      opacity: 1;
+    }
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #4CAF50;
+      cursor: pointer;
+    }
+    .slider::-moz-range-thumb {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #4CAF50;
+      cursor: pointer;
+    }
+    .vranger {
+       margin-top: 50px;
+       transform: rotate(270deg);
+      -moz-transform: rotate(270deg); /*do same for other browsers if required*/
+    }
+</style>
+<style>
+    aside  {
+      width: 600px;
+      height: 520px;
+      background: none;
+      overflow:auto;
+      min-height: 0;
+      transition-property: width;
+      transition-duration: 0.2s;
+      transition-timing-function: linear;
+    }
+</style>
+<style>
+    .checkboxgroup {
+    display: inline-block;
+    text-align: center;
+      margin-top: 7px
+    }
+     .checkboxgroup input[type='radio'] {
+        height: 17px;
+        width: 17px;
+        vertical-align: middle;
+    }
+    .checkboxgroup button {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 14px
+    }
+    .div1 {
+      float: left;
+      text-align: left;
+    }
+
+    .div2 {
+      float:right;
+      text-align: right;
+    }
+    .main {
+        width: 90%
+    }
+</style>
+<style>
+/* The checkcontainer */
+    .checkcontainer {
+      display: block;
+      position: relative;
+      padding-left: 35px;
+      margin-top: 3px;
+      margin-bottom: 0px;
+      cursor: pointer;
+      font-size: 10px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    /* Hide the browser's default checkbox */
+    .checkcontainer input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+    }
+    /* Create a custom checkbox */
+    .checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 15px;
+      width: 15px;
+      background-color: #eee;
+    }
+    /* On mouse-over, add a grey background color */
+    .checkcontainer:hover input ~ .checkmark {
+      background-color: #ccc;
+    }
+    /* When the checkbox is checked, add a green background */
+    .checkcontainer input:checked ~ .checkmark {
+      background-color: #4CAF50;
+    }
+    /* Create the checkmark/indicator (hidden when not checked) */
+    .checkmark:after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+    /* Show the checkmark when checked */
+    .checkcontainer input:checked ~ .checkmark:after {
+      display: block;
+    }
+    /* Style the checkmark/indicator */
+    .checkcontainer .checkmark:after {
+      left: 5px;
+      top: 2px;
+      width: 5px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 3px 3px 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+</style>
+<style>
+    * {
+      box-sizing: border-box;
+    }
+    /* Create two unequal columns that floats next to each other */
+    .column {
+      float: left;
+      padding: 10px;
+    }
+    .left {
+      width: 40%;
+    }
+    .right {
+      width: 60%;
+    }
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+</style>
+<style>
+    .table {
+        font-size: 15px
+    }
+    .table td{
+        padding: 1px
+    }
+</style>
+{% block styles %}
+    <link href="{% static 'css/otreetimer.css' %}" rel="stylesheet">
+{% endblock %}
+
+<br>
+<p>
+    The miner is feeling generous and wrote down price of 0 ECU.
+</p>
+<br>
+<p>
+    Therefore, you get to see if there are gold specks in the soil sample for free.
+</p>
+
+<br><br>
+
+<button id="Next" style="float:right;" class="btn btn-primary">Next</button>
+
+{{ endblock }}

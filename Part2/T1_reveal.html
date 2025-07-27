@@ -1,0 +1,63 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+Part 2
+{% endblock %}
+
+{% block content %}
+<hr>
+
+<style>
+    p{
+        font-size: 22px;
+    }
+    .otree-body {
+        max-width:1100px
+    }
+    .otree-title {
+        text-align: center
+    }
+</style>
+{% block styles %}
+    <link href="{% static 'css/otreetimer.css' %}" rel="stylesheet">
+{% endblock %}
+{{ if player.participant.get_gold == 1 }}
+<br>
+<p>
+    The buyer wrote {{player.participant.buyer_price}} ECU on the piece of paper.
+    This is below the minimum acceptable price your reported of {{player.participant.wta_t1}} ECU.
+    As a result you have kept the gold nugget and not sold it to the buyer.
+</p>
+<br>
+<p>
+   And it turns out that the gold is worth {{player.participant.gold_value}} ECU. You will receive this payment at the end of the experiment.
+</p>
+{{ else }}
+<br>
+<p>
+    The buyer wrote {{player.participant.buyer_price}} on the piece of paper.
+    This is above the minimum acceptable price your reported of {{player.participant.wta_t1}}.
+</p>
+<br>
+<p>
+    As a result the gold has been sold to the buyer and you will get {{player.participant.wta_t1}} ECU, which will be paid to you at the end
+    of the experiment.
+</p>
+{{endif}}
+<br>
+<p>
+    You may now proceed to Part 3, which is another round of tasks similar to what you just did.
+</p>
+<br>
+<p>
+    The tasks will last 7 minutes, including 20 questions, you will be paid 100 ECU if you
+    correctly answered half of the questions.
+</p>
+
+<br>
+<br>
+
+<button class="otree-btn-next btn btn-primary" style="float: right;">Next</button>
+
+{{ endblock }}

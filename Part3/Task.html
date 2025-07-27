@@ -1,0 +1,57 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+Part 3
+{% endblock %}
+
+{% block content %}
+<style>
+    * {
+      box-sizing: border-box;
+    }
+    p {
+      font-size: 22px;
+    }
+    .otree-title {
+      text-align:center
+    }
+    .otree-body {
+      max-width:1100px
+    }
+    .img-container {
+      float: left;
+      width: 50%;
+      padding: 5px;
+    }
+    .clearfix::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+    .otree-timer {
+        display: block;
+    }
+</style>
+<br>
+<p> How many instances of the letter 's' do you count in picture below. </p>
+
+<img src="{% static image_path_1 %}" style="width:50%" />
+
+{% formfields %}
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<!--<button class="otree-btn-next btn btn-primary" style="float: right;">Next</button>-->
+<p>
+{{ if player.participant.treatment == 2 }}
+<p>
+<p style="text-align: center">
+    <img src="{% static "Miner/gold_spec.png" %}" style="width:70%" />
+</p></p>
+<br>
+    {{ else }}
+<p>
+</p>
+<br>
+{{ endif }}
+
+{% endblock %}

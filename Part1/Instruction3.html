@@ -1,0 +1,190 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block scripts %}
+
+<script src="{% static 'js/Instruction1.js' %}"></script>
+
+{% endblock %}
+
+{% block styles %}
+    <link href="{% static 'css/otreetimer.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<style>
+    .next {
+        float: right;
+    }
+    .back{
+        float: left;
+        margin: 40px auto;
+        }
+    p {
+        font-size: 22px;
+    }
+    .otree-body {
+        max-width:1100px
+    }
+    .otree-title {
+        display: none
+    }
+</style>
+<style>
+    .fig-row {
+    font-size: 2rem;
+    color: #404030;
+    text-align: center;
+    width: 100%;
+    margin: 1.5rem auto 0 auto;
+    padding: 0;
+    }
+    .fig1-2 { width: 48.25%; }
+    .fig1-2 img { width: 100%; }
+    .fig-col {
+        margin: 0 0 0 2.5%;
+        display:inline-block;
+    }
+    .fig-col:first-child { margin-left: 0; } /* remove left margin from first column */
+</style>
+<div class="tab">
+    <br>
+    <br>
+    <h2 style="text-align: center">Part 1 - A soil sample <br/> (Page 1 of 4)</h2>
+    <hr>
+    <br>
+    <p>
+        The miner has just picked a spot and started digging.
+    </p>
+    <br>
+    <p>
+        The outcome of the mining, i.e., whether the miner will find nothing,
+        or a valuable gold nugget, is now determined.
+    </p>
+    <br>
+    <p style="text-align: center">
+        <img src="{% static "Miner/gold_spot.png" %}" style="width:50%" />
+    </p>
+    <p>
+        <button type="button" class="btn btn-primary btn-tab" data-offset="1" style="float: right">Next</button>
+    </p>
+</div>
+
+<div class="tab">
+    <br>
+    <br>
+    <h2 style="text-align: center">Part 1 - A soil sample <br/> (Page 2 of 4)</h2>
+    <hr>
+    <br>
+    <p>
+        However, the miner will collect a sample of soil and wash it in a river, to see if there is any gold specks in it.
+    </p>
+    <br>
+    <div class="fig-row">
+        <figure class="fig-col fig1-2" id="js--f99-03">
+            <img src ="{% static "Miner/gold_soil_inpan.png" %}" style="width:80%">
+        </figure>
+        <figure class="fig-col fig1-2" id="js--f99-03">
+            <img src ="{% static "Miner/gold_washing.png" %}" style="width:80%">
+        </figure>
+    </div>
+    <br>
+    <br>
+    <p>
+        If there are gold specks (see picture below), then <b>it is very likely there will be gold in the end</b>,
+        though the value of the gold nugget is uncertain.
+    </p>
+    <br><br>
+    <p style="text-align: center">
+        <img src="{% static "Miner/gold_spec.png" %}" style="width:80%" />
+    </p>
+    <br>
+    <p>
+        The miner could still find gold in the end even if there is no gold specks in the pan.
+    </p>
+    <br><br>
+    <p>
+        <button type="button" class="btn btn-primary btn-tab" data-offset="-1" style="float: left;">Previous</button>
+        <button type="button" class="btn btn-primary btn-tab" data-offset="1" style="float: right;">Next</button>
+    </p>
+    <br><br><br><br>
+</div>
+
+<div class="tab">
+    <br>
+    <br>
+    <h2 style="text-align: center">Part 1 - The gold specks <br/> (Page 3 of 4)</h2>
+    <hr>
+    <br>
+    <p>
+        By now, the miner has finished washing the soil.
+    </p>
+    <br>
+    <p>
+        He can show you whether there are any gold specks in his pan, <b>at a small charge</b>.
+    </p>
+    <br>
+    <p>
+        Note that the miner will keep digging no matter what.
+        And the outcome of the mining, which depends only on the location of the dig, is already determined.
+    </p>
+    <br>
+    <p>
+        Hence, whether or not you choose to see what's in his pan will not affect your earnings in any way for the rest of the experiment, except for the cost you pay for the information.
+    </p>
+    <br><br>
+    <p>
+        <button type="button" class="btn btn-primary btn-tab" data-offset="-1" style="float: left;">Previous</button>
+        <button type="button" class="btn btn-primary btn-tab" data-offset="1" style="float: right;">Next</button>
+    </p>
+    <br><br><br><br>
+</div>
+<div class="tab">
+    <br>
+    <br>
+    <h2 style="text-align: center">Part 1 - The gold specks <br/> (Page 4 of 4)</h2>
+    <hr>
+    <br>
+    <br>
+    <p>
+        The miner has picked a price (between 0 and 50 ECU) and has written it down on a piece of paper.
+    </p>
+    <br>
+    <p>
+        Now, please select the highest amount of ECU you are willing to pay to see if there are any gold specks.
+    </p>
+<!--    <p>-->
+<!--        If you do not wish to see what's in the miner's pan, you can simply choose 0 as the highest amount you are willing to pay.-->
+<!--    </p>-->
+    <br>
+    {{ formfields }}
+    <br><br>
+    <p>
+        <button type="button" class="btn btn-primary btn-tab" data-offset="-1" style="float: left;">Previous</button>
+        <button class="btn btn-primary" style="float: right;">Next</button>
+    </p>
+    <br><br><br><br>
+</div>
+<script>
+    let activeTab = 0;
+
+    function showCurrentTabOnly() {
+        let tabIndex = 0;
+        for (let tab of document.getElementsByClassName('tab')) {
+            tab.style.display = tabIndex === activeTab ? 'block' : 'none';
+            tabIndex++;
+        }
+    }
+
+    showCurrentTabOnly();
+    for (let btn of document.getElementsByClassName('btn-tab')) {
+        btn.onclick = function () {
+            activeTab += parseInt(btn.dataset.offset);
+            showCurrentTabOnly();
+        }
+    }
+</script>
+
+{% endblock %}
+
+

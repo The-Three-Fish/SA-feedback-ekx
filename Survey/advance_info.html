@@ -1,0 +1,55 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+Survey
+{% endblock %}
+
+{% block content %}
+<hr>
+
+<style>
+    p{
+        font-size: 22px;
+        margin-bottom: -18px;
+    }
+    .otree-body {
+        max-width:1100px
+    }
+    .otree-title {
+      text-align: center;
+    }
+</style>
+{% block styles %}
+    <link href="{% static 'css/otreetimer.css' %}" rel="stylesheet">
+{% endblock %}
+
+<br>
+{{ if player.participant.advance_info != 0 }}
+    <p style="margin-bottom: 10px;">
+        In Part 1, you chose to see if the miner has seen any gold specks in the soil sample, please explain why.
+    </p>
+    {{ formfield 'advance_info_reason' }}
+    <br>
+    <p>
+        You also stated that you are willing to pay <b>{{player.participant.advance_info_wtp}} ECU</b> for to see if there are any
+        gold specks.
+        What were the factors you considered when you were deciding on this price?
+    </p>
+    {{ formfield 'advance_info_wtp' }}
+{{ else }}
+    <p style="margin-bottom: 10px;">
+        In Part 1, you chose not to see if there are any gold specks in the soil sample, please explain why.
+    </p>
+    {{ formfield 'advance_info_reason' }}
+    <p style="margin-bottom: 10px;">
+        Would you be willing to see if there are any gold specks if the information is free?
+    </p>
+    {{ formfield 'advance_info_wtp' }}
+{{ endif }}
+    <br><br>
+
+
+<button class="otree-btn-next btn btn-primary" style="float: right;">Next</button>
+
+{{ endblock }}
